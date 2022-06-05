@@ -1,0 +1,21 @@
+{
+  "name": "conversor-de-moedas-electron",
+  "version": "1.0.0",
+  "description": "Conversor de moedas com electron",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epifaniofrancisco/conversor-de-moedas-electron.git"
+  },
+  "author": "Epifânio Francisco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/epifaniofrancisco/conversor-de-moedas-electron/issues"
+  },
+  "homepage": "https://github.com/epifaniofrancisco/conversor-de-moedas-electron#readme",
+  "type": "module"
+}

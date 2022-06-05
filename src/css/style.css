@@ -1,0 +1,162 @@
+:root {
+	--primary-color: #0A146E;
+	--secondary-color: #070D48;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 0 10px;
+	background-color: var(--primary-color);
+}
+
+::selection {
+	color: white;
+	background-color: var(--primary-color);
+}
+
+.card {
+	width: 500px;
+	padding: 30px;
+	border-radius: 7px;
+	background: #fff;
+	box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
+}
+.card h1 {
+	font-size: 30px;
+	font-weight: 600;
+	text-align: center;
+}
+.card form {
+	margin: 40px 0 20px 0;
+}
+
+form :where(input, select, button) {
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	border: none;
+}
+
+form .input-group {
+	position: relative;
+}
+
+form .input-group input {
+	height: 40px;
+	font-size: 18px;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	font: inherit;
+	color: black;
+	background-color: transparent;
+	outline: 1px solid #999;
+}
+
+form .input-group .input-label {
+	color: black;
+	font-size: 18px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(10px, 10px);
+	transition: transform .25s;
+}
+
+form .input-group input:focus+.input-label,
+input:valid+.input-label {
+	color: black;
+	background-color: white;
+	padding-inline: 5px;
+	transform: translate(10px, -10px) scale(.8);
+}
+
+form .input-group input:is(:focus, :valid) {
+	outline: 2px solid var(--primary-color);
+}
+
+form .moedas {
+	display: flex;
+	margin-top: 20px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.moedas .select-box {
+	display: flex;
+	width: 115px;
+	height: 45px;
+	align-items: center;
+	border-radius: 5px;
+	justify-content: center;
+	border: 1px solid #999;
+}
+
+.select-box img {
+	max-width: 21px;
+}
+
+.select-box select {
+	width: auto;
+	font-size: 16px;
+	background: none;
+	margin: 0 -5px 0 5px;
+}
+
+.select-box select::-webkit-scrollbar {
+	width: 8px;
+}
+
+.select-box select::-webkit-scrollbar-track {
+	background: #fff;
+}
+
+.select-box select::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 8px;
+	border-right: 2px solid #ffffff;
+}
+
+.moedas .icon {
+	width: 50px;
+	height: 50px;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #999;
+	border-radius: 50%;
+	margin-top: 15px;
+}
+
+
+.moedas .icon:hover, .icon:focus {
+	border: 2px solid var(--primary-color);
+}
+
+.moedas .icon img {
+	width: 50%;
+}
+
+form button {
+	height: 52px;
+	color: #fff;
+	font-size: 17px;
+	cursor: pointer;
+	background: var(--primary-color);
+	transition: 0.3s ease;
+    margin-top: 20px;
+}
+
+form button:hover {
+	background: var(--secondary-color);
+}

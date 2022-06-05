@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de moedas</title>
+    <link rel="shortcut icon" href="../assets/icon/Currency_Conversion.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="card">
+        <h1>Conversor de moedas</h1>
+
+        <form action="#">
+            <div class="input-group">
+                <input type="number" name="montante" id="montante" required>
+                <label for="montante" class="input-label">Montante</label>
+            </div>
+
+            <div class="moedas">
+                <div class="input-group from">
+                    <label for="" class="moeda-de">De</label>
+                    <div class="select-box">
+                        <img src="../assets/images/bandeiras/us.png" alt="ícone de bandeira">
+                        <select name="moeda-de" id="moeda-de"></select>
+                    </div>
+                </div>
+
+                <div class="icon">
+                    <img src="../assets/icon/exchange-alt.svg" alt="ícone de troca">
+                </div>
+
+                <div class="input-group to">
+                    <label for="" class="moeda-para">Para</label>
+                    <div class="select-box">
+                        <img src="../assets/images/bandeiras/ao.png" alt="ícone de bandeira" id="teste1">
+                        <select name="moeda-para" id="moeda-para"></select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exchange-rate">Convertendo</div>
+
+            <button>Converter</button>
+        </form>
+    </div>
+
+    
+    <script src="js/loadDropList.js" type="module"></script>
+<script src="js/script.js" type="module"></script>
+
+</body>
+
+</html>
