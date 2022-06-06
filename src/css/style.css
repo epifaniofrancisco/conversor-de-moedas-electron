@@ -1,9 +1,18 @@
+@font-face {
+	font-family: "Montserrat";
+	src: url(../../assets/fonts/Montserrat/Montserrat-Regular.ttf);
+	font-family: "Montserrat-Light";
+	src: url(../../assets/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
 :root {
 	--primary-color: #0A146E;
-	--secondary-color: #070D48;
+	--secondary-color: #081058;
 }
 
 * {
+	font-family: "Montserrat";
+	font-weight: 500;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -31,8 +40,10 @@ body {
 	box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
 }
 .card h1 {
+	color: var(--secondary-color);
+	font-family: "Montserrat-Light";
 	font-size: 30px;
-	font-weight: 600;
+	font-weight: 500;
 	text-align: center;
 }
 .card form {
@@ -147,10 +158,19 @@ form .moedas {
 	width: 50%;
 }
 
+.exchange-rate {
+	color: #888;
+	font-size: 20px;
+	font-family: "Montserrat";
+	font-weight: 600;
+	margin-top: 20px;
+
+}
+
 form button {
 	height: 52px;
-	color: #fff;
-	font-size: 17px;
+	color: white;
+	font-size: 22px;
 	cursor: pointer;
 	background: var(--primary-color);
 	transition: 0.3s ease;
