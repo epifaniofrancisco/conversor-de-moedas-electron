@@ -21,7 +21,7 @@ export function getExchangeRate() {
 			let exchangeRate = result.conversion_rates[toCurrency.value]; // getting user selected TO currency rate
 			let totalExRate = (amountVal * exchangeRate).toFixed(2); // multiplying user entered value with selected TO currency rate
 
-			exchangeRateTxt.innerHTML = `<span id="montante">${amountVal}</span>  ${fromCurrency.value} = <span>${totalExRate}</span>  ${toCurrency.value}`;
+			exchangeRateTxt.innerHTML = `${amountVal} <span class="currency">${fromCurrency.value}</span> = ${totalExRate} <span class="currency">${toCurrency.value}</span>`;
 		})
 		.catch(() => {
 			// if user is offline or any other error occured while fetching data then catch function will run

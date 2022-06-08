@@ -1,18 +1,15 @@
 import { countryList } from "./countryList.js";
 import { loadFlag } from "./loadFlag.js";
-import { getExchangeRate } from "./getExchangeRate.js";
+import { checkInput } from "./checkInput.js";
 
 const fromCurrency = document.querySelector(".from select"),
 	toCurrency = document.querySelector(".to select"),
 	getButton = document.querySelector("form button");
 
-window.addEventListener("load", () => {
-	getExchangeRate();
-});
-
 getButton.addEventListener("click", (e) => {
 	e.preventDefault();
-	getExchangeRate();
+	checkInput();
+
 });
 
 const exchangeIcon = document.querySelector("form .icon");
@@ -22,5 +19,5 @@ exchangeIcon.addEventListener("click", () => {
 	toCurrency.value = tempCode;
 	loadFlag(countryList, fromCurrency);
 	loadFlag(countryList, toCurrency); 
-	getExchangeRate(); 
+	checkInput();
 });

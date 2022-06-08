@@ -12,7 +12,6 @@
 
 * {
 	font-family: "Montserrat";
-	font-weight: 500;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -36,7 +35,7 @@ body {
 	width: 500px;
 	padding: 30px;
 	border-radius: 7px;
-	background: #fff;
+	background: white;
 	box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
 }
 .card h1 {
@@ -64,6 +63,8 @@ form .input-group {
 form .input-group input {
 	height: 40px;
 	font-size: 18px;
+	display: block;
+	margin-bottom: 5px;
 	padding: 10px;
 	border: none;
 	border-radius: 5px;
@@ -72,6 +73,27 @@ form .input-group input {
 	background-color: transparent;
 	outline: 1px solid #999;
 }
+
+form .input-group input:is(:focus, :valid) {
+	outline: 2px solid var(--primary-color);
+}
+
+form .input-group .span-error {
+	font-size: 17px;
+	display: none;
+	padding-left: 10px;
+	border: 1px solid #db5a5a;
+}
+
+form .input-group.error input {
+	border: 3px solid #db5a5a;
+	outline: none;
+}
+
+form .input-group.error span {
+	display: flex;
+}
+
 
 form .input-group .input-label {
 	color: black;
@@ -88,11 +110,12 @@ input:valid+.input-label {
 	color: black;
 	background-color: white;
 	padding-inline: 5px;
-	transform: translate(10px, -10px) scale(.8);
+	transform: translate(10px, -12.4px) scale(.8);
 }
 
-form .input-group input:is(:focus, :valid) {
-	outline: 2px solid var(--primary-color);
+
+form .input-group label {
+	font-size: 18px;
 }
 
 form .moedas {
@@ -118,7 +141,7 @@ form .moedas {
 
 .select-box select {
 	width: auto;
-	font-size: 16px;
+	font-size: 17px;
 	background: none;
 	margin: 0 -5px 0 5px;
 }
@@ -134,7 +157,7 @@ form .moedas {
 .select-box select::-webkit-scrollbar-thumb {
 	background: #888;
 	border-radius: 8px;
-	border-right: 2px solid #ffffff;
+	border-right: 2px solid white;
 }
 
 .moedas .icon {
@@ -149,7 +172,6 @@ form .moedas {
 	margin-top: 15px;
 }
 
-
 .moedas .icon:hover, .icon:focus {
 	border: 2px solid var(--primary-color);
 }
@@ -159,15 +181,21 @@ form .moedas {
 }
 
 .exchange-rate {
-	color: #888;
-	font-size: 20px;
-	font-family: "Montserrat";
+	color: #818181;
+	font-family: sans-serif;
 	font-weight: 600;
+	font-size: 20px;
 	margin-top: 20px;
 
 }
 
+.exchange-rate .currency {
+	color: #373737;
+	font-weight: 600;
+}
+
 form button {
+	font-family: "Montserrat-Light";
 	height: 52px;
 	color: white;
 	font-size: 22px;
