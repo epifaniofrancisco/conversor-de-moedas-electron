@@ -1,3 +1,5 @@
+import { writeJsonFile } from "./json.js";
+
 const fromCurrency = document.querySelector(".from select"),
 	toCurrency = document.querySelector(".to select");
 
@@ -14,12 +16,14 @@ export function getExchangeRate() {
 	*/
 	exchangeRateTxt.innerText = "Obtendo taxa de câmbio...";
 	let url = `https://v6.exchangerate-api.com/v6/28197f69941ed36e7787fc47/latest/${fromCurrency.value}`;
+	
+	//writeJsonFile(url)
 	// fetching api response and returning it with parsing into js obj and in another then method receiving that obj
 	fetch(url)
 		.then((response) => response.json())
 		.then((result) => {
 			let exchangeRate = result.conversion_rates[toCurrency.value]; // getting user selected TO currency rate
-			let totalExRate = (amountVal * exchangeRate).toFixed(2); // multiplying user entered value with selected TO currency rate
+			let totalExRate = (amountVal * exchangeRate).toFixed(4); // multiplying user entered value with selected TO currency rate
 
 			exchangeRateTxt.innerHTML = `${amountVal} <span class="currency">${fromCurrency.value}</span> = ${totalExRate} <span class="currency">${toCurrency.value}</span>`;
 		})
