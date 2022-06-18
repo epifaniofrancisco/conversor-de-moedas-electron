@@ -1,17 +1,8 @@
 import os
-import socket
 import requests
 import json
 
-
-def isConnect():
-    try:
-        socket.create_connection(("www.google.com", 80))
-        return True
-    except OSError:
-        pass
-    return False
-
+from isConnect import isConnect
 
 def getApi():
     response = requests.get(
@@ -21,20 +12,21 @@ def getApi():
 
 
 def dataApi():
-    if isConnect():
+    if not isConnect():
         data = getApi()
 
-        with open('data.json', 'w') as outfile:
+        with open('src/python/api/data.json', 'w') as outfile:
             json.dump(data, outfile)
 
         # TODO Pegar os valores certos
         exchange = data["conversion_rates"]["AOA"] * 2
-
-    elif not isConnect():
+        print("nice")
+    elif isConnect():
         if os.path.exists('data.json'):
             with open('data.json') as jsonFile:
                 data = json.load(jsonFile)
                 exchange = 0
+        print("fofo")
     else:
         print("\033[31mConecte-se a internet para baixar as taxas de conversão.")
 
