@@ -4,18 +4,44 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
+
+const fs = require('fs')
+
+
+oi = {
+  "primeiro": 1,
+  "segundo": 2
+}
+
+function writeJsonFile(text) {
+	const data = JSON.stringify(text);
+
+	try {
+		fs.writeFile("teste.json", data, (err) => {
+			if (err) {
+				throw err;
+			}
+
+			console.log("Finished");
+		});
+	} catch (error) {
+		console.error(err);
+	}
+}
 const createWindow = () => {
+
+  writeJsonFile(oi)
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      nodeIntegration: true
     }
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('src/index.html')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -25,6 +51,7 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Algumas APIs podem ser usadas somente depois que este evento ocorre.
 app.whenReady().then(() => {
+  writeJsonFile(oi)
   createWindow()
 
   app.on('activate', () => {

@@ -14,10 +14,13 @@
     <div class="card">
         <h1>Conversor de moedas</h1>
 
+        <h2>Estado: <span id="status"></span></h2>
+
         <form action="#">
-            <div class="input-group
-            ">
-                <input type="number" name="montante" id="montante" required>
+            <div class="input-group">
+                <input max name="montante" id="montante" required
+                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    type="number" maxlength="6" />
                 <label for="montante" class="input-label">Montante</label>
                 <span class="span-error"></span>
             </div>
@@ -50,7 +53,6 @@
         </form>
     </div>
 
-    <script src="js/json.js" type="module"></script>
     <script src="js/loadDropList.js" type="module"></script>
     <script src="js/script.js" type="module"></script>
 

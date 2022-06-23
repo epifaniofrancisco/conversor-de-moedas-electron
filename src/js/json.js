@@ -1,4 +1,4 @@
-import fs from "fs";
+const fs = require("fs")
 
 export function writeJsonFile(text) {
 	const data = JSON.stringify(text);

@@ -17,5 +17,7 @@
     "url": "https://github.com/epifaniofrancisco/conversor-de-moedas-electron/issues"
   },
   "homepage": "https://github.com/epifaniofrancisco/conversor-de-moedas-electron#readme",
-  "type": "module"
+  "dependencies": {
+    "electron": "^19.0.4"
+  }
 }

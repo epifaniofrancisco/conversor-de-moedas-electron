@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Hello World!</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Hello World!</h1>
     We are using Node.js <span id="node-version"></span>,
     Chromium <span id="chrome-version"></span>,
     and Electron <span id="electron-version"></span>.
-  </body>
+
+
+
+    <script>
+
+        function writeJsonFile(text) {
+            console.log("oii");
+            const data = JSON.stringify(text);
+
+            try {
+                fs.writeFile("teste.json", data, (err) => {
+                    if (err) {
+                        throw err;
+                    }
+
+                    console.log("Finished");
+                });
+            } catch (error) {
+                console.error(err);
+            }
+        }
+
+
+        writeJsonFile({"oi":1})
+    </script>
+</body>
+
 </html>

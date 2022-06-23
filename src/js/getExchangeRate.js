@@ -1,4 +1,6 @@
-import { writeJsonFile } from "./json.js";
+import { isConnect } from "./isConnect.js";
+
+isConnect()
 
 const fromCurrency = document.querySelector(".from select"),
 	toCurrency = document.querySelector(".to select");
