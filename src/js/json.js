@@ -4,7 +4,7 @@ export function writeJsonFile(text) {
 	const data = JSON.stringify(text);
 
 	try {
-		fs.writeFile("data.json", data, (err) => {
+		fs.writeFile("nada.json", data, (err) => {
 			if (err) {
 				throw err;
 			}

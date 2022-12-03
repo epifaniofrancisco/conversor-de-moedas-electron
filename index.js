@@ -4,9 +4,7 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-
 const fs = require('fs')
-
 
 oi = {
   "primeiro": 1,
@@ -17,7 +15,7 @@ function writeJsonFile(text) {
 	const data = JSON.stringify(text);
 
 	try {
-		fs.writeFile("teste.json", data, (err) => {
+		fs.writeFile("nada.json", data, (err) => {
 			if (err) {
 				throw err;
 			}
@@ -28,6 +26,19 @@ function writeJsonFile(text) {
 		console.error(err);
 	}
 }
+
+function readJsonFile() {
+	fs.readFile("data.json", "utf-8", (err, data) => {
+		if (err) {
+			throw err;
+		}
+
+		const user = JSON.parse(data.toString());
+
+		console.log(user);
+	});
+}
+
 const createWindow = () => {
 
   writeJsonFile(oi)
