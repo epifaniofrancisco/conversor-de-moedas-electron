@@ -13,13 +13,6 @@ export function isConnect() {
 	window.addEventListener("offline", (e) => {
 		setStatus(false);
 	});
-}
 
-/*export function isConnect() {
-    if (navigator.onLine) {
-        alert("Conectado")
-    } else {
-        alert("Conecte-se")
-    }
+	return navigator.onLine ? true : false;
 }
-*/

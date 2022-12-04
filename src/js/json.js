@@ -1,6 +1,6 @@
 const fs = require("fs")
 
-export function writeJsonFile(text) {
+function writeJsonFile(text) {
 	const data = JSON.stringify(text);
 
 	try {
@@ -16,7 +16,7 @@ export function writeJsonFile(text) {
 	}
 }
 
-export function readJsonFile() {
+function readJsonFile() {
 	fs.readFile("data.json", "utf-8", (err, data) => {
 		if (err) {
 			throw err;
