@@ -1,6 +1,6 @@
 import { getExchangeRate } from "./getExchangeRate.js";
 
-var input = document.getElementById("montante");
+var input = document.querySelector(".amount");
 
 export function checkInput() {
 	var inputValue = input.value.trim();

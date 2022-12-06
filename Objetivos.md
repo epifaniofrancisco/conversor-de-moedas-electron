@@ -1,4 +1,4 @@
-# Conversor de Moedas com Electron
+# Conversor de moedas com Electron
 
 Um conversor de moeda é usado para converter um valor em uma moeda para seu valor correspondente em outra moeda usando sua taxa de câmbio atual, por exemplo, pode ser usado para calcular o valor de 100 dólares americanos em euros. As taxas de câmbio atuais geralmente são fornecidas por bancos e outros provedores de serviços financeiros, eles também (em alguns casos) oferecem APIs gratuitas e pagas para desenvolvedores obterem taxas de câmbio atuais e históricas entre duas ou mais moedas.
 

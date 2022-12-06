@@ -115,14 +115,14 @@ form .input-group label {
 	font-size: 18px;
 }
 
-form .moedas {
+form .currencies {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 20px;
 }
 
-.moedas .select-box {
+.currencies .select-box {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -157,7 +157,7 @@ form .moedas {
 	border-right: 2px solid var(--text-white);
 }
 
-.moedas .icon {
+.currencies .icon {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -170,12 +170,12 @@ form .moedas {
 	cursor: pointer;
 }
 
-.moedas .icon:hover,
+.currencies .icon:hover,
 .icon:focus {
 	border: 2px solid var(--primary-color);
 }
 
-.moedas .icon img {
+.currencies .icon img {
 	width: 50%;
 }
 

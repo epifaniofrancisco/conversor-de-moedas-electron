@@ -11,25 +11,24 @@
 </head>
 
 <body>
-
     <div class="card">
         <h1>Conversor de moedas</h1>
 
         <form action="#">
             <div class="input-group">
-                <input max name="montante" id="montante" required
+                <input name="amount" class="amount" required
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     type="number" maxlength="6" />
-                <label for="montante" class="input-label">Montante</label>
+                <label for="amount" class="input-label">Montante</label>
                 <span class="span-error"></span>
             </div>
 
-            <div class="moedas">
+            <div class="currencies">
                 <div class="input-group from">
-                    <label for="" class="moeda-de">De</label>
+                    <label>De</label>
                     <div class="select-box">
                         <img src="../assets/images/bandeiras/us.png" alt="ícone de bandeira">
-                        <select name="moeda-de" id="moeda-de"></select>
+                        <select name="currency-from"></select>
                     </div>
                 </div>
 
@@ -38,10 +37,10 @@
                 </div>
 
                 <div class="input-group to">
-                    <label for="" class="moeda-para">Para</label>
+                    <label>Para</label>
                     <div class="select-box">
-                        <img src="../assets/images/bandeiras/ao.png" alt="ícone de bandeira" id="teste1">
-                        <select name="moeda-para" id="moeda-para"></select>
+                        <img src="../assets/images/bandeiras/ao.png" alt="ícone de bandeira">
+                        <select name="currency-to"></select>
                     </div>
                 </div>
             </div>
@@ -51,7 +50,7 @@
             <button>Converter</button>
         </form>
     </div>
-    
+
     <p class="status"></p>
 
     <script src="js/loadDropList.js" type="module"></script>

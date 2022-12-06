@@ -29,7 +29,7 @@ const fromCurrency = document.querySelector(".from select"),
 	toCurrency = document.querySelector(".to select");
 
 export async function getExchangeRate() {
-	const amount = document.querySelector("#montante");
+	const amount = document.querySelector(".amount");
 	const exchangeRateTxt = document.querySelector("form .exchange-rate");
 	let amountVal = amount.value;
 	let apiData;
