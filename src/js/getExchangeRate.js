@@ -9,7 +9,7 @@ TODO: Verificar se os dados já foram guardados
 TODO: Verificar se já se conectou a internet para baixar os dados
 */
 
-function calculateTotalExchangeRate(totalExRate, amountVal, exchangeRate) {
+function calculateTotalExchangeRate(amountVal, exchangeRate) {
 	let totalExRate = (amountVal * exchangeRate).toFixed(4);
 
 	return totalExRate;

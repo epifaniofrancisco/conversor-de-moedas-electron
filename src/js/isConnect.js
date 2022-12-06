@@ -1,6 +1,6 @@
 export function isConnect() {
 	const setStatus = (status) => {
-		const statusNode = document.getElementById("status");
+		const statusNode = document.querySelector(".status");
 		statusNode.innerText = status ? "online" : "offline";
 	};
 

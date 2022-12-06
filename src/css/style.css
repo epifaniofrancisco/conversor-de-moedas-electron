@@ -6,8 +6,10 @@
 }
 
 :root {
-	--primary-color: #0A146E;
+	--primary-color: #0a146e;
 	--secondary-color: #081058;
+	--text-white: #fff;
+	--text-black: #121212;
 }
 
 * {
@@ -19,10 +21,9 @@
 
 body {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	min-height: 100vh;
-	padding: 0 10px;
 	background-color: var(--primary-color);
 }
 
@@ -33,27 +34,28 @@ body {
 
 .card {
 	width: 500px;
+	background: var(--text-white);
+	border-radius: 8px;
+	margin: auto 0;
 	padding: 30px;
-	border-radius: 7px;
-	background: white;
-	box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
 }
+
 .card h1 {
-	color: var(--secondary-color);
 	font-family: "Montserrat-Light";
-	font-size: 30px;
+	font-size: 1.9rem;
 	font-weight: 500;
 	text-align: center;
+	color: var(--secondary-color);
 }
 .card form {
-	margin: 40px 0 20px 0;
+	margin: 40px 0 20px;
 }
 
 form :where(input, select, button) {
 	width: 100%;
-	outline: none;
+	border: 0;
 	border-radius: 5px;
-	border: none;
+	outline: 0;
 }
 
 form .input-group {
@@ -61,16 +63,15 @@ form .input-group {
 }
 
 form .input-group input {
-	height: 40px;
-	font-size: 18px;
 	display: block;
+	height: 40px;
+	font: inherit;
+	font-size: 18px;
+	background-color: transparent;
+	border: 0;
+	border-radius: 5px;
 	margin-bottom: 5px;
 	padding: 10px;
-	border: none;
-	border-radius: 5px;
-	font: inherit;
-	color: black;
-	background-color: transparent;
 	outline: 1px solid #999;
 }
 
@@ -79,10 +80,10 @@ form .input-group input:is(:focus, :valid) {
 }
 
 form .input-group .span-error {
-	font-size: 17px;
 	display: none;
+	font-size: 17px;
+	color: #db5a5a;
 	padding-left: 10px;
-	border: 1px solid #db5a5a;
 }
 
 form .input-group.error input {
@@ -94,25 +95,21 @@ form .input-group.error span {
 	display: flex;
 }
 
-
 form .input-group .input-label {
-	color: black;
-	font-size: 18px;
 	position: absolute;
 	top: 0;
 	left: 0;
+	font-size: 18px;
 	transform: translate(10px, 10px);
-	transition: transform .25s;
+	transition: transform 0.25s;
 }
 
-form .input-group input:focus+.input-label,
-input:valid+.input-label {
-	color: black;
+form .input-group input:focus + .input-label,
+input:valid + .input-label {
 	background-color: white;
 	padding-inline: 5px;
-	transform: translate(10px, -12.4px) scale(.8);
+	transform: translate(10px, -12.4px) scale(0.8);
 }
-
 
 form .input-group label {
 	font-size: 18px;
@@ -120,19 +117,19 @@ form .input-group label {
 
 form .moedas {
 	display: flex;
-	margin-top: 20px;
-	align-items: center;
 	justify-content: space-between;
+	align-items: center;
+	margin-top: 20px;
 }
 
 .moedas .select-box {
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 115px;
 	height: 45px;
-	align-items: center;
-	border-radius: 5px;
-	justify-content: center;
 	border: 1px solid #999;
+	border-radius: 5px;
 }
 
 .select-box img {
@@ -142,7 +139,7 @@ form .moedas {
 .select-box select {
 	width: auto;
 	font-size: 17px;
-	background: none;
+	background: 0;
 	margin: 0 -5px 0 5px;
 }
 
@@ -151,28 +148,30 @@ form .moedas {
 }
 
 .select-box select::-webkit-scrollbar-track {
-	background: #fff;
+	background: var(--text-white);
 }
 
 .select-box select::-webkit-scrollbar-thumb {
 	background: #888;
 	border-radius: 8px;
-	border-right: 2px solid white;
+	border-right: 2px solid var(--text-white);
 }
 
 .moedas .icon {
-	width: 50px;
-	height: 50px;
-	background-color: transparent;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 50px;
+	height: 50px;
+	background-color: transparent;
 	border: 1px solid #999;
 	border-radius: 50%;
 	margin-top: 15px;
+	cursor: pointer;
 }
 
-.moedas .icon:hover, .icon:focus {
+.moedas .icon:hover,
+.icon:focus {
 	border: 2px solid var(--primary-color);
 }
 
@@ -181,30 +180,37 @@ form .moedas {
 }
 
 .exchange-rate {
-	color: #818181;
+	color: var(--text-black);
 	font-family: sans-serif;
 	font-weight: 600;
 	font-size: 20px;
 	margin-top: 20px;
-
 }
 
 .exchange-rate .currency {
-	color: #373737;
-	font-weight: 600;
+	color: var(--primary-color);
+	font-weight: 700;
 }
 
 form button {
+	height: 45px;
 	font-family: "Montserrat-Light";
-	height: 52px;
-	color: white;
 	font-size: 22px;
-	cursor: pointer;
+	color: var(--text-white);
 	background: var(--primary-color);
+	margin-top: 20px;
 	transition: 0.3s ease;
-    margin-top: 20px;
+	cursor: pointer;
 }
 
 form button:hover {
 	background: var(--secondary-color);
+}
+
+.status {
+	align-self: flex-end;
+	font-size: 1.15rem;
+	color: #db5a5a;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
 }
