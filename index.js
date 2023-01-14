@@ -1,58 +1,22 @@
 // main.js
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron')
-const path = require('path')
-
-const fs = require('fs')
-
-oi = {
-  "primeiro": 1,
-  "segundo": 2
-}
-
-function writeJsonFile(text) {
-	const data = JSON.stringify(text);
-
-	try {
-		fs.writeFile("nada.json", data, (err) => {
-			if (err) {
-				throw err;
-			}
-
-			console.log("Finished");
-		});
-	} catch (error) {
-		console.error(err);
-	}
-}
-
-function readJsonFile() {
-	fs.readFile("data.json", "utf-8", (err, data) => {
-		if (err) {
-			throw err;
-		}
-
-		const user = JSON.parse(data.toString());
-
-		console.log(user);
-	});
-}
+const { app, BrowserWindow, Menu } = require('electron')
 
 const createWindow = () => {
-
-  writeJsonFile(oi)
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+    autoHideMenuBar: true
   })
 
   // and load the index.html of the app.
   mainWindow.loadFile('src/index.html')
+  mainWindow.setMenuBarVisibility(false)
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -62,7 +26,6 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Algumas APIs podem ser usadas somente depois que este evento ocorre.
 app.whenReady().then(() => {
-  writeJsonFile(oi)
   createWindow()
 
   app.on('activate', () => {

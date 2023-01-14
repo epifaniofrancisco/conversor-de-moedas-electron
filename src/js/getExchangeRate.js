@@ -3,10 +3,8 @@ import { isConnect } from "./isConnect.js";
 isConnect();
 
 /* 
-TODO: Verificar se há ligação a internet e se consegue aceder aos dados
 TODO: Converter para outras moedas depois de converter para USD primeiro
-TODO: Verificar se os dados já foram guardados
-TODO: Verificar se já se conectou a internet para baixar os dados
+TODO: Ao estar conectado, usar a API para converter as moedas
 */
 
 function calculateTotalExchangeRate(amountVal, exchangeRate) {
@@ -36,17 +34,16 @@ export async function getExchangeRate() {
 
 	if (isConnect()) {
 		const res = await fetch(
-			"https://v6.exchangerate-api.com/v6/28197f69941ed36e7787fc47/latest/USD"
+			"https://api.exchangerate.host/latest?base=USD"
 		);
+
+		console.log("Online");
 
 		apiData = await res.json();
-		localStorage.setItem(
-			"currencyData",
-			JSON.stringify(apiData.conversion_rates)
-		);
+		localStorage.setItem("currencyRates", JSON.stringify(apiData.rates));
 		exchangeRateTxt.innerText = "Obtendo taxa de câmbio...";
 
-		let exchangeRate = apiData.conversion_rates[toCurrency.value];
+		let exchangeRate = apiData.rates[toCurrency.value];
 		let totalExRate = calculateTotalExchangeRate(amountVal, exchangeRate);
 
 		showResult(
@@ -57,17 +54,29 @@ export async function getExchangeRate() {
 			toCurrency
 		);
 	} else {
-		apiData = JSON.parse(localStorage.getItem("currencyData"));
-		exchangeRateTxt.innerText = "Obtendo taxa de câmbio...";
-		let exchangeRate = apiData[toCurrency.value]; // getting user selected TO currency rate
-		let totalExRate = calculateTotalExchangeRate(amountVal, exchangeRate);
+		// Verifica se os itens estão guardados
+		if (localStorage.getItem("currencyRates") === null) {
+			const statusOfConnection = document.querySelector(".status-data");
 
-		showResult(
-			exchangeRateTxt,
-			amountVal,
-			fromCurrency,
-			totalExRate,
-			toCurrency
-		);
+			statusOfConnection.innerText = "Conecte-se para baixar os dados!"
+		} else {
+			apiData = JSON.parse(localStorage.getItem("currencyRates"));
+			exchangeRateTxt.innerText = "Obtendo taxa de câmbio...";
+
+			console.log("Offline");
+			let exchangeRate = apiData[toCurrency.value]; // getting user selected TO currency rate
+			let totalExRate = calculateTotalExchangeRate(
+				amountVal,
+				exchangeRate
+			);
+
+			showResult(
+				exchangeRateTxt,
+				amountVal,
+				fromCurrency,
+				totalExRate,
+				toCurrency
+			);
+		}
 	}
 }

@@ -14,30 +14,6 @@
     Chromium <span id="chrome-version"></span>,
     and Electron <span id="electron-version"></span>.
 
-
-
-    <script>
-
-        function writeJsonFile(text) {
-            console.log("oii");
-            const data = JSON.stringify(text);
-
-            try {
-                fs.writeFile("teste.json", data, (err) => {
-                    if (err) {
-                        throw err;
-                    }
-
-                    console.log("Finished");
-                });
-            } catch (error) {
-                console.error(err);
-            }
-        }
-
-
-        writeJsonFile({"oi":1})
-    </script>
 </body>
 
 </html>

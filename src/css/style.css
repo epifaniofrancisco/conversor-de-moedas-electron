@@ -207,10 +207,24 @@ form button:hover {
 	background: var(--secondary-color);
 }
 
+.messages {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	font-size: 1.15rem;
+	color: #c80000;
+}
+
+.messages p {
+	margin-bottom: 1rem;
+}
+
 .status {
 	align-self: flex-end;
-	font-size: 1.15rem;
-	color: #db5a5a;
 	margin-right: 1rem;
-	margin-bottom: 1rem;
+}
+
+.status-data {
+	align-self: flex-start;
+	margin-left: 1rem;
 }
