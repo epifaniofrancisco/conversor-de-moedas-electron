@@ -1,6 +1,6 @@
 {
   "name": "conversor-de-moedas-electron",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Conversor de moedas com electron",
   "main": "index.js",
   "scripts": {
